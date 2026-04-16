@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+    }
+    .loading {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Suuname edasi...</h2>
+    <p class="loading">Please wait.</p>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const androidApp = "https://support99600.wixsite.com/teekond";
+    const iosApp = "https://support99600.wixsite.com/teekond";
+    const fallbackURL = "https://support99600.wixsite.com/teekond";
+
+    if (/android/i.test(userAgent)) {
+      window.location.href = androidApp;
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // Open App Store
+      window.location.href = iosApp;
+
+      // After 1 second, redirect the page itself
+      setTimeout(function () {
+        window.location.href = fallbackURL;
+      }, 1000);
+    } else {
+      window.location.href = fallbackURL;
+    }
+  });
+</script>
+
+</body>
+</html>
